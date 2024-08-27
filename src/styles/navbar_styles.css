@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  #nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: burlywood;
+  }
+  #menus{
+    display: flex;
+  }
+  /* descentend selector */
+  #menus p{
+    padding: 0px 10px;
+  }
+  #logo{
+    display: flex;
+    align-items: center;
+  }
+  #logo>h1{
+    padding: 0px 10px;
+    color: brown;
+  }
