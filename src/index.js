@@ -9,6 +9,7 @@ import Documents from './pages/documents';
 import Profile from './pages/profile';
 import App from './App';
 import Settings from './pages/settings';
+import Login from './pages/login';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,6 +22,7 @@ root.render(
           <Route path="documents" element={<Documents/>}/>
           <Route path="profile" element={<Profile/>}/>
           <Route path="settings" element={<Settings/>}/>
+          <Route path="login" element={<Login/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
