@@ -1,11 +1,21 @@
 import { useState } from "react";
 import "../styles/login.css"
 import CustomFormField from "../components/custom_form_field";
+import { Link } from "react-router-dom";
 const Login = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
-    const handleSubmit = ()=>{
+    const handleSubmit = (event)=>{ 
+        event.preventDefault()
+        if(email.length == 0){
+            alert("Please enter email")
+            return
+        }
+        if(password.length < 6){
+            alert("Please enter strong password")
+            return
+        }
         console.log("email = ", email)
         console.log("password = ", password)
     }
@@ -16,7 +26,7 @@ const Login = () => {
         setPassword(event.target.value)
     }
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <div id="login-box">
                 <h1 id="login-title">LOGIN</h1>
                 <CustomFormField
@@ -35,8 +45,14 @@ const Login = () => {
                     value={password}
                     onChange={handlePasswordChange}
                 />
-                <div id="login-button" onClick={handleSubmit}>
+                {/* <div id="login-button" onClick={handleSubmit}>
                     Login
+                </div> */}
+                <div id="login-button">
+                    <input value="Login" type="submit"/>
+                </div>
+                <div id="signup-field">
+                    <p>Don't have an account? <Link to="/register">Signup</Link></p>
                 </div>
             </div>
         </form>
