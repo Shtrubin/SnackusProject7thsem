@@ -11,6 +11,9 @@ import App from './App';
 import Settings from './pages/settings';
 import Login from './pages/login';
 import Register from './pages/register';
+import Users from './pages/user';
+import Post from './pages/post';
+import { AddPost } from './pages/add_post';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -25,6 +28,9 @@ root.render(
           <Route path="settings" element={<Settings/>}/>
           <Route path="login" element={<Login/>}/>
           <Route path="register" element={<Register/>}/>
+          <Route path="user" element={<Users/>}/>
+          <Route path="post" element={<Post/>}/>
+          <Route path="post/add" element={<AddPost/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

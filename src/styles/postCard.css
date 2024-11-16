@@ -1,0 +1,25 @@
+*{
+  margin: 0px;
+  padding: 0px;  
+}
+.post-card{
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px
+    5px rgba(161, 196, 242, 0.59);
+    display: flex;
+    align-items: center;
+    
+}
+.post-id{
+    background-color: rgb(145, 53, 232);
+    border-radius: 50%;
+    margin: 20px;
+    color: white;
+    font-weight: bold;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

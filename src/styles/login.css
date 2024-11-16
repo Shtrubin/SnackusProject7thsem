@@ -1,54 +1,93 @@
-#login-box{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0px 0px 20px 20px rgba(128, 0, 128, 0.684);
-    width: 350px;
-    border-radius: 20px;
-    padding: 20px
+/* Reset and global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-#login-title{
-    margin-bottom: 20px;
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
 }
-.login-field-with-label{
-    margin-bottom: 20px;
+
+/* Container styles */
+#login-container {
+    display: flex;
+    height: 100vh;
 }
-.login-label{
-    font-size: 18px;
+
+/* Snackus title styling */
+#snakus-title {
+    position: absolute; /* Position it relative to the parent container */
+    top: 40px; /* Adjust spacing from the top */
+    left: 70px; /* Adjust spacing from the left */
+    font-size: 3.5em; /* Customize font size */
     font-weight: bold;
-    margin-bottom: 10px;
+    color: #333; /* Customize color */
 }
-.login-field{
+
+/* Left side styling */
+#login-left {
+    position: relative; /* Enable positioning for child elements */
+    flex: 1;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#login-title {
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #333;
+}
+
+#login-box {
+    width: 80%;
+    max-width: 400px;
+}
+
+#login-box input[type="email"], 
+#login-box input[type="password"], 
+#login-box input[type="submit"] {
     width: 100%;
-    padding: 10px 5px;
-    border: 1px solid purple;
-    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
-#login-button{
-    background-color: purple;
-    color: whitesmoke;
-    border-radius: 10px;
-    text-align: center;
+
+#login-box input[type="submit"] {
+    background-color: #007BFF;
+    color: white;
     cursor: pointer;
 }
-#login-button input{
-    width: 100%;
-    padding: 10px 40px;
-    background-color: transparent;
-    border: none;
-    color: whitesmoke;
-    font-size: 20px;
+
+#login-box input[type="submit"]:hover {
+    background-color: #0056b3;
 }
-#signup-field{
+
+#signup-field {
+    margin-top: 15px;
     text-align: center;
-    margin-top: 30px;
-    font-weight: bold;
-    font-size: 16px;
 }
-#signup-field a{
+
+#signup-field a {
+    color: #007BFF;
     text-decoration: none;
-    color: brown;
-    font-size: 20px;
-    font-style: italic;
+}
+
+#signup-field a:hover {
+    text-decoration: underline;
+}
+
+/* Right side styling */
+#login-right {
+    flex: 1;
+    background-image: url('../assets/food.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
 }

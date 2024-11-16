@@ -1,0 +1,16 @@
+.container{
+    max-width: 400px;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: 1px solid black;
+    overflow: hidden;
+    
+}
+.header{
+   background-color: blue;  
+   text-align: center;
+   color: white;
+}
+#con{
+    padding: 20px;
+}
