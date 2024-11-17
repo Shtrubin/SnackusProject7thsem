@@ -1,29 +1,48 @@
-import { useState } from "react";
-import Navbar from "../components/navbar";
-import "../styles/home.css"
+import React from "react";
+import RestaurantCard from "../components/RestaurantCard";
+import '../styles/home.css'
 
-export default function Home() {
-    const [count, setCount] = useState(0)
-    const [animate, setAnimate] = useState(false)
-    const handleIncrement = ()=>{
-        startAnimation()
-        setCount((prevValue)=>{
-            return prevValue + 1
-        })
-    }
-    const startAnimation = ()=>{
-        setAnimate(true)
-    }
-    const stopAnimation = ()=>{
-        setAnimate(false)
-    }
-    return (
-        <>
-            <Navbar title={"SNACKUS"} />
-            <h1>Home Page</h1>
-            <p id="center-text" className={animate ? "scale-text" : ""} onAnimationEnd={stopAnimation}>{count}</p>
-            <div id="button" onClick={handleIncrement}>+</div>
-            <div id="button" className="minus-button" onClick={handleIncrement}>-</div>
-        </>
-    );
+const restaurants = [
+  {
+    restaurantName: "The Gourmet Bistro",
+    location: "New York, NY",
+    description: "A modern bistro offering a fusion of American and European cuisine.",
+    rate: 4.5,
+    restaurantPhotoUrl: "https://picsum.photos/200/300",
+  },
+  {
+    restaurantName: "Pasta Paradise",
+    location: "Los Angeles, CA",
+    description: "An Italian restaurant specializing in fresh, handmade pasta and traditional dishes.",
+    rate: 4.7,
+    restaurantPhotoUrl: "https://picsum.photos/200/300",
+  },
+  {
+    restaurantName: "Sushi Haven",
+    location: "San Francisco, CA",
+    description: "Authentic sushi and sashimi served in a contemporary, minimalist setting.",
+    rate: 4.9,
+    restaurantPhotoUrl: "https://picsum.photos/200/300",
+  },
+  {
+    restaurantName: "Vegan Delights",
+    location: "Austin, TX",
+    description: "A plant-based eatery offering creative and delicious vegan dishes.",
+    rate: 4.8,
+    restaurantPhotoUrl: "https://picsum.photos/200/300",
+  },
+];
+
+function Home() {
+  return (
+    <div className="container">
+      <div className="card-container">
+        {restaurants.map((restaurant) => (
+          <RestaurantCard key={restaurant.restaurantName} restaurant={restaurant} />
+        ))}
+      </div>
+    </div>
+  );
 }
+
+export default Home;
