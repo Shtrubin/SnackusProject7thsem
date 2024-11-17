@@ -1,4 +1,3 @@
-// src/components/RestaurantCard.js
 import React from "react";
 import "../styles/restaurantCard.css";
 

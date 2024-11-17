@@ -1,17 +1,28 @@
 import React from "react";
 import RestaurantCard from "../components/RestaurantCard";
-import '../styles/home.css'
+import SpecialRestaurantCard from "../components/SpecialRestaurantCard"; 
+import '../styles/home.css';
 import restaurants from "../restaurantData";
+import Navbar from "../components/navbar";
 
 function Home() {
   return (
+    <>
+    <Navbar/>
     <div className="container">
+      <div className="special-card-container">
+        {restaurants.length > 0 && (
+          <SpecialRestaurantCard restaurant={restaurants[0]} />
+        )}
+      </div>
+
       <div className="card-container">
-        {restaurants.map((restaurant) => (
+        {restaurants.slice(1).map((restaurant) => (
           <RestaurantCard key={restaurant.restaurantName} restaurant={restaurant} />
         ))}
       </div>
     </div>
+    </>
   );
 }
 

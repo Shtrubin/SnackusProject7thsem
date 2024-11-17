@@ -3,7 +3,7 @@ import Navbar from "../components/navbar";
 const Settings = () => {
     return (
         <>
-            <Navbar title={"Settings"} />
+            <Navbar/>
             <h1>Settings Page</h1>
         </>
     );

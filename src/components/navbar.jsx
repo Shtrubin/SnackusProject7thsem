@@ -1,7 +1,7 @@
 import "../styles/navbar_styles.css";
 import { Link } from "react-router-dom";
 
-const Navbar = ({ title }) => {
+const Navbar = () => {
   return (
     <>
       <div id="nav">
@@ -11,7 +11,7 @@ const Navbar = ({ title }) => {
               src="https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?t=st=1723686274~exp=1723689874~hmac=7ace5166283ca85861a61b7f4f176518d0cb69ab6fc197716f1d5b3671102780&w=996"
               alt="Logo"
             />
-            <h1>{title}</h1>
+            <h1>SnackUs</h1>
           </div>
           <div id="ad-image">
             <img src="https://via.placeholder.com/350x100" alt="Advertisement" />

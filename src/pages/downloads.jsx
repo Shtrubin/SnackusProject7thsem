@@ -29,7 +29,7 @@ const Downloads = () => {
     }
     return (
         <>
-            <Navbar title={"Downloads"} />
+            <Navbar />
             <h1 onClick={changeTitleStyle} ref={titleRef}>Downloads Page</h1>
             <p>TimerCount: <span style={{fontSize: "50px",color:'red'}}>{timerCount}</span></p>
             <input type="text" ref={inputRef}/>

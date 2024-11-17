@@ -1,15 +1,11 @@
 .container {
   padding: 20px;
-  text-align: center;
 }
-
 .card-container {
   display: grid;
   grid-template-columns: repeat(3, 400px); 
   gap: 67px;
-  justify-content: center;
+  justify-content: center; 
   margin-top: 20px;
+  margin-bottom: 50px;
 }
-
-
-

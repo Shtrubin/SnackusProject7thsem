@@ -16,7 +16,7 @@ const Documents = () => {
     }
     return (
         <>
-            <Navbar title={"Documents"} />
+            <Navbar />
             <h1>Doucments Page</h1>
             <h1>{count}</h1>
             <h4>{isEven? "Even":"Odd"}</h4>

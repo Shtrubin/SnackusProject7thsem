@@ -3,16 +3,16 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes ,Route } from 'react-router-dom';
-import Home from './pages/home';
 import Downloads from './pages/downloads';
 import Documents from './pages/documents';
 import Profile from './pages/profile';
 import App from './App';
 import Settings from './pages/settings';
-import Login from './pages/login';
 import Register from './pages/register';
 import Post from './pages/post';
 import { AddPost } from './pages/add_post';
+import Home from './pages/home';
+import UserLogIn from './pages/login';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -25,7 +25,7 @@ root.render(
           <Route path="documents" element={<Documents/>}/>
           <Route path="profile" element={<Profile/>}/>
           <Route path="settings" element={<Settings/>}/>
-          <Route path="login" element={<Login/>}/>
+          <Route path="login" element={<UserLogIn/>}/>
           <Route path="register" element={<Register/>}/>
           <Route path="post" element={<Post/>}/>
           <Route path="post/add" element={<AddPost/>}/>
