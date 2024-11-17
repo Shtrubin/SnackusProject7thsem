@@ -1,26 +1,34 @@
-import "../styles/navbar_styles.css"
+import "../styles/navbar_styles.css";
 import { Link } from "react-router-dom";
-const Navbar = ({title}) => {
-    return (
-        <>
-            {/* main nav bar */}
-            <div id='nav' >
-                {/* first section */}
-                <div id='logo'>
-                    <img src='https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?t=st=1723686274~exp=1723689874~hmac=7ace5166283ca85861a61b7f4f176518d0cb69ab6fc197716f1d5b3671102780&w=996' alt='Logo' width={80} height={80} />
-                    <h1>{title}</h1>
-                </div>
-                {/* second seciont */}
-                <div id='menus'>
-                    <p><Link to="/">Home</Link></p>
-                    <p><Link to="/documents">Documents</Link></p>
-                    <p><Link to="/settings">Setting</Link></p>
-                    <p><Link to="/profile">Profile</Link></p>
-                    <p><Link to="/download">Downloads</Link></p>
-                    <p><Link to="/login">Login</Link></p>
-                </div>
-            </div>
-        </>
-    );
-}
-export default Navbar
+
+const Navbar = ({ title }) => {
+  return (
+    <>
+      <div id="nav">
+        <div id="nav-top">
+          <div id="logo">
+            <img
+              src="https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?t=st=1723686274~exp=1723689874~hmac=7ace5166283ca85861a61b7f4f176518d0cb69ab6fc197716f1d5b3671102780&w=996"
+              alt="Logo"
+            />
+            <h1>{title}</h1>
+          </div>
+          <div id="ad-image">
+            <img src="https://via.placeholder.com/350x100" alt="Advertisement" />
+          </div>
+        </div>
+        <div id="menus">
+          <p><Link to="/">Home</Link></p>
+          <p><Link to="/Local">Local</Link></p>
+          <p><Link to="/Mid-range">Mid-range</Link></p>
+          <p><Link to="/High-End">High-End</Link></p>
+          <p><Link to="/Search">Search</Link></p>
+          <p><Link to="/SignUp">SignUp</Link></p>
+          <p><Link to="/login">Login</Link></p>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Navbar;

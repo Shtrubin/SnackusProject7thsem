@@ -5,7 +5,7 @@ const Documents = () => {
     const [count,setCount]=useState(10)
     const [isEven,setIsEven]=useState(true)
     useEffect(()=>{
-        if(count %2==0){
+        if(count %2===0){
             setIsEven(true)
         }else{
             setIsEven(false)

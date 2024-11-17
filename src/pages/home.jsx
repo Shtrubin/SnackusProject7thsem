@@ -19,7 +19,7 @@ export default function Home() {
     }
     return (
         <>
-            <Navbar title={"Home Page"} />
+            <Navbar title={"SNACKUS"} />
             <h1>Home Page</h1>
             <p id="center-text" className={animate ? "scale-text" : ""} onAnimationEnd={stopAnimation}>{count}</p>
             <div id="button" onClick={handleIncrement}>+</div>
