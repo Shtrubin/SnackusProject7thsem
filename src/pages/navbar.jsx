@@ -23,7 +23,7 @@ const Navbar = () => {
           <p><Link to="/Mid-range">Mid-range</Link></p>
           <p><Link to="/High-End">High-End</Link></p>
           <p><Link to="/Search">Search</Link></p>
-          <p><Link to="/SignUp">SignUp</Link></p>
+          <p><Link to="/signup">SignUp</Link></p>
           <p><Link to="/login">Login</Link></p>
         </div>
       </div>

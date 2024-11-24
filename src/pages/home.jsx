@@ -3,12 +3,10 @@ import RestaurantCard from "../components/RestaurantCard";
 import SpecialRestaurantCard from "../components/SpecialRestaurantCard"; 
 import '../styles/home.css';
 import restaurants from "../restaurantData";
-import Navbar from "../components/navbar";
 
 function Home() {
   return (
     <>
-    <Navbar/>
     <div className="container">
       <div className="special-card-container">
         {restaurants.length > 0 && (
