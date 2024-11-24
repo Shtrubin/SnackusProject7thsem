@@ -25,6 +25,7 @@ const Navbar = () => {
           <p><Link to="/Search">Search</Link></p>
           <p><Link to="/signup">SignUp</Link></p>
           <p><Link to="/login">Login</Link></p>
+          <p><Link to="/chatbot">Chatbot</Link></p>
         </div>
       </div>
     </>

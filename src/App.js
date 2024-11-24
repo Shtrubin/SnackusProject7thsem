@@ -4,6 +4,7 @@ import Home from "./pages/home";
 import UserLogIn from "./pages/login";
 import Register from "./pages/register";
 import Navbar from "./pages/navbar";
+import Chatbot from "./pages/Chatbot";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<UserLogIn />} />
           <Route path="/signup" element={<Register />} />
+          <Route path="/chatbot" element={<Chatbot />} />
         </Routes>
       </Layout>
     </Router>
