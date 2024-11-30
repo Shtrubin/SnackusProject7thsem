@@ -1,9 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"; // for React Router v6
 import "../styles/restaurantCard.css";
 
 function RestaurantCard({ restaurant }) {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/restaurant/${restaurant.id}`);
+  };
+
   return (
-    <div className="card">
+    <div className="card" onClick={handleClick}>
       <img src={restaurant.photo_url} alt={restaurant.restaurant_name} />
       <div className="card-body">
         <h3>{restaurant.restaurant_name}</h3>

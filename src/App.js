@@ -9,6 +9,7 @@ import Chatbot from "./pages/Chatbot";
 import CategorizedRestaurant from "./pages/CategorizedRestaurant";
 import { RestaurantProvider } from "./context/RestaurantContext"; // Import the provider
 import Search from "./pages/Search";
+import RestaurantDetail from "./pages/RestaurantDetail";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/mid-range" element={<CategorizedRestaurant  category={"mid-range"}/>} />
             <Route path="/high-end" element={<CategorizedRestaurant  category={"high-end"}/>} />
             <Route path="/search" element={<Search/>} />
+            <Route path="/restaurant/:id" element={<RestaurantDetail />} /> 
           </Routes>
         </Layout>
       </Router>
