@@ -3,7 +3,7 @@ import "../styles/login.css";
 import CustomFormField from "../components/custom_form_field";
 import { Link, useNavigate } from "react-router-dom";
 
-const UserLogIn = () => {
+const UserLogIn = ({ setIsLoggedIn }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();  
@@ -38,6 +38,8 @@ const UserLogIn = () => {
 
             if (response.ok) {
                 alert("Login successful!");
+                localStorage.setItem("userLoggedIn", "true"); // Set login status in localStorage
+                setIsLoggedIn(true);  // Update state
                 navigate("/");  
             } else {
                 alert(data.error || "Invalid email or password");
