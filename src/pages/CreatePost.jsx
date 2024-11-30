@@ -10,6 +10,7 @@ function CreatePost() {
     special_item: "",
     description: "",
     recommendation: "",
+    category: "local", // Default to 'local'
   });
 
   const [restaurantPhoto, setRestaurantPhoto] = useState(null);
@@ -31,7 +32,7 @@ function CreatePost() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     // Create FormData to handle file uploads
     const form = new FormData();
 
@@ -44,6 +45,7 @@ function CreatePost() {
     form.append("special_item", formData.special_item);
     form.append("description", formData.description);
     form.append("recommendation", formData.recommendation);
+    form.append("category", formData.category); // Send category field
 
     // Append image files if they are selected
     if (restaurantPhoto) {
@@ -109,9 +111,10 @@ function CreatePost() {
           name="sub_location"
           value={formData.sub_location}
           onChange={handleInputChange}
-          placeholder="Sub Location"
+          placeholder="Sub-location"
         />
-        <textarea
+        <input
+          type="text"
           name="special_item"
           value={formData.special_item}
           onChange={handleInputChange}
@@ -127,8 +130,19 @@ function CreatePost() {
           name="recommendation"
           value={formData.recommendation}
           onChange={handleInputChange}
-          placeholder="Our Recommendation"
+          placeholder="Recommendation"
         />
+
+        <select
+          name="category"
+          value={formData.category}
+          onChange={handleInputChange}
+        >
+          <option value="local">Local</option>
+          <option value="mid-range">Mid-range</option>
+          <option value="high-end">High-end</option>
+        </select>
+
         <input
           type="file"
           name="restaurant_photo"
@@ -139,6 +153,7 @@ function CreatePost() {
           name="menu_photo"
           onChange={handleImageChange}
         />
+
         <button type="submit">Submit</button>
       </form>
     </div>
