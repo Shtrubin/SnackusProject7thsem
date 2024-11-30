@@ -1,24 +1,51 @@
 import { useState } from "react";
 import "../styles/login.css";
 import CustomFormField from "../components/custom_form_field";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const UserLogIn = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();  
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
+
         if (email.length === 0) {
-            alert("Please enter email");
+            alert("Email cannot be empty");
             return;
         }
         if (password.length < 6) {
-            alert("Please enter a strong password");
+            alert("Password should have minimum 6 characters");
             return;
         }
-        console.log("email =", email);
-        console.log("password =", password);
+
+        const userData = {
+            email,
+            password,
+        };
+
+        try {
+            const response = await fetch("http://localhost:5000/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(userData),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                alert("Login successful!");
+                navigate("/");  
+            } else {
+                alert(data.error || "Invalid email or password");
+            }
+        } catch (error) {
+            console.error("Error during login:", error);
+            alert("Error during login");
+        }
     };
 
     const handleEmailChange = (event) => setEmail(event.target.value);
@@ -26,12 +53,9 @@ const UserLogIn = () => {
 
     return (
         <div id="login-container">
-            {/* Left Side */}
             <div id="login-left">
-                {/* Snackus Title */}
                 <div id="snakus-title">Snackus</div>
 
-                {/* Login Form */}
                 <form id="login-box" onSubmit={handleSubmit}>
                     <h1 id="login-title">LOGIN</h1>
                     <CustomFormField
@@ -54,12 +78,11 @@ const UserLogIn = () => {
                         <input value="Login" type="submit" />
                     </div>
                     <div id="signup-field">
-                        <p>Don't have an account? <Link to="/register">Signup</Link></p>
+                        <p>Don't have an account? <Link to="/signup">Signup</Link></p>
                     </div>
                 </form>
             </div>
 
-            {/* Right Side */}
             <div id="login-right"></div>
         </div>
     );

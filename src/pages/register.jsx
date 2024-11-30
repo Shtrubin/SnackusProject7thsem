@@ -9,8 +9,9 @@ const Register = () => {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
+
         if (username.trim() === "") {
             alert("Please enter a username");
             return;
@@ -27,17 +28,46 @@ const Register = () => {
             alert("Passwords do not match");
             return;
         }
-        console.log("Signup details:", { username, email, password });
+
+        const userData = {
+            username,
+            email,
+            password,
+        };
+
+        try {
+            const response = await fetch("http://localhost:5000/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(userData),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                alert("User registered successfully!");
+                
+                setUsername("");
+                setEmail("");
+                setPassword("");
+                setConfirmPassword("");
+                
+            } else {
+                alert(data.error || "Something went wrong");
+            }
+        } catch (error) {
+            console.error("Error during registration:", error);
+            alert("Error during registration");
+        }
     };
 
     return (
         <div id="signup-container">
-            {/* Left Side */}
             <div id="signup-left">
-                {/* Snackus Title */}
                 <div id="snakus-title">Snackus</div>
 
-                {/* Signup Form */}
                 <form id="signup-box" onSubmit={handleSubmit}>
                     <h1 id="signup-title">SIGN UP</h1>
                     <CustomFormField
@@ -81,7 +111,6 @@ const Register = () => {
                 </form>
             </div>
 
-            {/* Right Side */}
             <div id="signup-right"></div>
         </div>
     );
