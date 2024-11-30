@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function ReviewSection({ restaurantId }) {
-  const [review, setReview] = useState("");  // To store the review input
-  const [reviews, setReviews] = useState([]); // To store reviews (static for now)
+  const [review, setReview] = useState("");
+  const [reviews, setReviews] = useState([]);
 
   const handleReviewChange = (event) => {
     setReview(event.target.value);
@@ -16,7 +16,6 @@ function ReviewSection({ restaurantId }) {
       return;
     }
 
-    // Retrieve the user_id from localStorage
     const userId = localStorage.getItem("userId");
 
     if (!userId) {
@@ -24,7 +23,6 @@ function ReviewSection({ restaurantId }) {
       return;
     }
 
-    // Make the POST request to the backend to submit the review
     try {
       const response = await fetch('http://localhost:5000/submit_review', {
         method: 'POST',
@@ -33,17 +31,16 @@ function ReviewSection({ restaurantId }) {
         },
         body: JSON.stringify({
           review_text: review,
-          user_id: userId,  // Pass the user ID from localStorage
-          restaurant_id: restaurantId,  // Pass the restaurant ID
+          user_id: userId,
+          restaurant_id: restaurantId,
         }),
       });
 
       const data = await response.json();
 
       if (response.ok) {
-        alert('Review submitted successfully!');
-        setReviews([...reviews, review]);  // Update local state with new review
-        setReview("");  // Clear the input field
+        setReviews([...reviews, { review_text: review, username: data.username ? data.username : 'you' }]);
+        setReview("");
       } else {
         alert(data.error || 'Error submitting review');
       }
@@ -52,6 +49,26 @@ function ReviewSection({ restaurantId }) {
       alert('Error during review submission');
     }
   };
+
+  useEffect(() => {
+    const fetchReviews = async () => {
+      try {
+        const response = await fetch(`http://localhost:5000/reviews/${restaurantId}`);
+        const data = await response.json();
+
+        if (response.ok) {
+          setReviews(data);
+        } else {
+          alert(data.message || 'Error fetching reviews');
+        }
+      } catch (error) {
+        console.error(error);
+        alert('Error fetching reviews');
+      }
+    };
+
+    fetchReviews();
+  }, [restaurantId]);
 
   return (
     <div className="review-section">
@@ -72,7 +89,7 @@ function ReviewSection({ restaurantId }) {
         {reviews.length > 0 ? (
           reviews.map((rev, index) => (
             <div key={index} className="review-item">
-              <p>{rev}</p>
+              <p><strong>{rev.username}</strong>: {rev.review_text}</p>
             </div>
           ))
         ) : (
