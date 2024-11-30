@@ -1,0 +1,26 @@
+.restaurant-detail-container {
+    display: flex;
+    width: 100%;
+  }
+  
+  .left-part {
+    width: 75%;
+    padding: 20px 0px 20px 120px;
+    box-sizing: border-box;
+    background-color: red;
+  }
+  
+  .right-part {
+    width: 25%;
+    padding: 20px 0px 20px 55px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: blue;
+  }
+  
+  .dummy-image img {
+    height: auto;
+  }
+  

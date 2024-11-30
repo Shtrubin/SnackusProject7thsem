@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import '../styles/restaurantDetail.css'
 
 function RestaurantDetail() {
   const { id } = useParams();
@@ -29,16 +30,26 @@ function RestaurantDetail() {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className="restaurant-detail">
-      <img src={restaurant.photo_url} alt={restaurant.restaurant_name} />
-      <h2>{restaurant.restaurant_name}</h2>
-      <p>{restaurant.description}</p>
-      <p><strong>Special Item:</strong> {restaurant.special_item}</p>
-      <p><strong>Location:</strong> {restaurant.location}</p>
-      <p><strong>Sub-location:</strong> {restaurant.sub_location}</p>
-      <p><strong>Recommendation:</strong> {restaurant.recommendation}</p>
-      <p><strong>Rating:</strong> {restaurant.rating}</p>
-      <img src={restaurant.menu_photo_url} alt="Menu" />
+    <div className="restaurant-detail-container">
+      <div className="left-part">
+        <img src={restaurant.photo_url} alt={restaurant.restaurant_name} />
+        <h2>{restaurant.restaurant_name}</h2>
+        <p>{restaurant.description}</p>
+        <p><strong>Special Item:</strong> {restaurant.special_item}</p>
+        <p><strong>Location:</strong> {restaurant.location}</p>
+        <p><strong>Sub-location:</strong> {restaurant.sub_location}</p>
+        <p><strong>Recommendation:</strong> {restaurant.recommendation}</p>
+        <p><strong>Rating:</strong> {restaurant.rating}</p>
+        <img src={restaurant.menu_photo_url} alt="Menu" />
+      </div>
+      <div className="right-part">
+        <div className="dummy-image">
+          <img src="https://picsum.photos/200/300" alt="Dummy 1" />
+        </div>
+        <div className="dummy-image">
+          <img src="https://picsum.photos/200/300" alt="Dummy 2" />
+        </div>
+      </div>
     </div>
   );
 }
