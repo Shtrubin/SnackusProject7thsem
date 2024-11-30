@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import '../styles/restaurantDetail.css'
+import '../styles/restaurantDetail.css';
 
 function RestaurantDetail() {
   const { id } = useParams();
@@ -32,15 +32,30 @@ function RestaurantDetail() {
   return (
     <div className="restaurant-detail-container">
       <div className="left-part">
-        <img src={restaurant.photo_url} alt={restaurant.restaurant_name} />
-        <h2>{restaurant.restaurant_name}</h2>
+        <h2 className="restaurant-title">{restaurant.restaurant_name}</h2>
+        <img className="landscape-image" src={restaurant.photo_url} alt={restaurant.restaurant_name} />
+        <p className="rating">Rating: {restaurant.rating}/10</p>
         <p>{restaurant.description}</p>
-        <p><strong>Special Item:</strong> {restaurant.special_item}</p>
-        <p><strong>Location:</strong> {restaurant.location}</p>
-        <p><strong>Sub-location:</strong> {restaurant.sub_location}</p>
-        <p><strong>Recommendation:</strong> {restaurant.recommendation}</p>
-        <p><strong>Rating:</strong> {restaurant.rating}</p>
-        <img src={restaurant.menu_photo_url} alt="Menu" />
+
+        <div className="details-section">
+          <h3>Detail</h3>
+          <p><strong>Restaurant Name:</strong> {restaurant.restaurant_name}</p>
+          <p><strong>Location:</strong> {restaurant.location}</p>
+          <p><strong>Rating:</strong> {restaurant.rating}/10</p>
+          <p><strong>Special Item:</strong> {restaurant.special_item}</p>
+        </div>
+
+        <div className="recommendation-section">
+          <h3>Our Recommendation</h3>
+          <p>{restaurant.recommendation}</p>
+        </div>
+
+        <div className="menu-download-section">
+          <h3>Download Menu</h3>
+          <a href={restaurant.menu_photo_url} download>
+            <button className="download-button">Download Menu</button>
+          </a>
+        </div>
       </div>
       <div className="right-part">
         <div className="dummy-image">

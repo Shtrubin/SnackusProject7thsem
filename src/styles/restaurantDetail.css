@@ -5,9 +5,8 @@
   
   .left-part {
     width: 75%;
-    padding: 20px 0px 20px 120px;
+    padding: 60px 0px 20px 120px;
     box-sizing: border-box;
-    background-color: red;
   }
   
   .right-part {
@@ -17,7 +16,62 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background-color: blue;
+  }
+  
+  .restaurant-title {
+    font-size: 29px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .landscape-image {
+    width: 80%;
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+    margin-bottom: 20px;
+    border: 5px solid yellow;  
+  }
+  
+  .rating {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  
+  .details-section, .recommendation-section, .menu-download-section {
+    margin-top: 20px;
+  }
+  
+  h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .details-section p, .recommendation-section ul {
+    font-size: 16px;
+  }
+  
+  .recommendation-section ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .recommendation-section li {
+    margin-bottom: 5px;
+  }
+  
+  .menu-download-section .download-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .menu-download-section .download-button:hover {
+    background-color: #45a049;
   }
   
   .dummy-image img {
