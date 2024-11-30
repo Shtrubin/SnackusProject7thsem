@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '../styles/review.css'
 
 function ReviewSection({ restaurantId }) {
   const [review, setReview] = useState("");
@@ -72,20 +73,8 @@ function ReviewSection({ restaurantId }) {
 
   return (
     <div className="review-section">
-      <h3>Write a Review</h3>
-      <form onSubmit={handleReviewSubmit}>
-        <textarea
-          value={review}
-          onChange={handleReviewChange}
-          placeholder="Write your review here..."
-          rows="4"
-          cols="50"
-        />
-        <button type="submit" className="submit-review-btn">Submit Review</button>
-      </form>
-
-      <div className="reviews-display">
-        <h4>Reviews</h4>
+        <div className="reviews-display">
+        <h3>Reviews</h3>
         {reviews.length > 0 ? (
           reviews.map((rev, index) => (
             <div key={index} className="review-item">
@@ -96,6 +85,16 @@ function ReviewSection({ restaurantId }) {
           <p>No reviews yet.</p>
         )}
       </div>
+      <form onSubmit={handleReviewSubmit}>
+        <textarea
+          value={review}
+          onChange={handleReviewChange}
+          placeholder="Write your review here..."
+          rows="4"
+          cols="50"
+        />
+        <button type="submit" className="submit-review-btn">Submit Review</button>
+      </form>
     </div>
   );
 }

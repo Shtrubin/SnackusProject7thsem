@@ -1,0 +1,83 @@
+/* review.css */
+.review-section {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px 20px 20px 0;
+    font-family: Arial, sans-serif;
+}
+h3{
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+textarea {
+    
+    border: 1px solid #FFA823 !important; /* Set the border color to yellow */
+   
+}
+.reviews-display {
+    margin-bottom: 20px;
+}
+
+.review-item {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.review-item p {
+    background-color: #e4e6eb; /* Light gray background for reviews */
+    padding: 10px 15px;
+    border-radius: 15px;
+    margin: 0;
+    font-size: 14px;
+    word-wrap: break-word;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for a bubble effect */
+    max-width: 80%; /* Adjusts the width of each message */
+    overflow-wrap: break-word; /* Ensures long words wrap correctly */
+}
+
+.review-item p strong {
+    font-weight: bold;
+}
+
+.review-item p::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -10px;
+    width: 10px;
+    height: 10px;
+    background-color: #e4e6eb;
+    transform: translateY(-50%) rotate(45deg);
+    z-index: 1;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    resize: none;
+}
+
+.submit-review-btn {
+    padding: 10px 20px;
+    border: none;
+    background-color: #FFA823;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    align-self: flex-start;
+}
+
+.submit-review-btn:hover {
+    background-color: #f59505;
+}
