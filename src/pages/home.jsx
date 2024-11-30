@@ -1,31 +1,12 @@
-import React, { useState, useEffect } from "react";
+// Home.js
+import React, { useContext } from "react";
 import RestaurantCard from "../components/RestaurantCard";
-import SpecialRestaurantCard from "../components/SpecialRestaurantCard"; 
-import '../styles/home.css';
+import SpecialRestaurantCard from "../components/SpecialRestaurantCard";
+import RestaurantContext from "../context/RestaurantContext"; // Import the context
+import "../styles/home.css";
 
 function Home() {
-  const [restaurants, setRestaurants] = useState([]);
-  const [loading, setLoading] = useState(true); 
-  const [error, setError] = useState(null); 
-
-  useEffect(() => {
-    // Fetch restaurant data from the backend
-    fetch("http://localhost:5000/restaurants")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to fetch restaurant data");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setRestaurants(data);  
-        setLoading(false);  
-      })
-      .catch((error) => {
-        setError(error.message);  
-        setLoading(false);  
-      });
-  }, []);  
+  const { restaurants, loading, error } = useContext(RestaurantContext); // Use the context
 
   if (loading) {
     return <div>Loading...</div>;
