@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import '../styles/restaurantDetail.css';
 import RestaurantContext from "../context/RestaurantContext";
 import RestaurantCard from "../components/RestaurantCard";
+import ReviewSection from "../components/ReviewSection";
 
 function RestaurantDetail() {
   const { id } = useParams();
@@ -63,8 +64,7 @@ function RestaurantDetail() {
             </a>
           </div>
         </div>
-
-        {/* Displaying 3 cards in a row */}
+        <ReviewSection restaurantId={id} /> 
         <div className="cards-row">
           {restaurants.map(item => (
             <RestaurantCard key={item.id} restaurant={item} />

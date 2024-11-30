@@ -10,7 +10,7 @@ const UserLogIn = ({ setIsLoggedIn }) => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
+    
         if (email.length === 0) {
             alert("Email cannot be empty");
             return;
@@ -19,12 +19,12 @@ const UserLogIn = ({ setIsLoggedIn }) => {
             alert("Password should have minimum 6 characters");
             return;
         }
-
+    
         const userData = {
             email,
             password,
         };
-
+    
         try {
             const response = await fetch("http://localhost:5000/login", {
                 method: "POST",
@@ -33,14 +33,18 @@ const UserLogIn = ({ setIsLoggedIn }) => {
                 },
                 body: JSON.stringify(userData),
             });
-
+    
             const data = await response.json();
-
+    
             if (response.ok) {
                 alert("Login successful!");
-                localStorage.setItem("userLoggedIn", "true"); // Set login status in localStorage
+    
+                // Store the user ID in localStorage
+                localStorage.setItem("userLoggedIn", "true");
+                localStorage.setItem("userId", data.user_id); // Store user ID
+                
                 setIsLoggedIn(true);  // Update state
-                navigate("/");  
+                navigate("/");  // Redirect to the home page or dashboard
             } else {
                 alert(data.error || "Invalid email or password");
             }
@@ -49,6 +53,7 @@ const UserLogIn = ({ setIsLoggedIn }) => {
             alert("Error during login");
         }
     };
+    
 
     const handleEmailChange = (event) => setEmail(event.target.value);
     const handlePasswordChange = (event) => setPassword(event.target.value);
