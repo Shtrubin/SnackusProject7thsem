@@ -40,35 +40,38 @@ function RestaurantDetail() {
         <img className="landscape-image" src={restaurant.photo_url} alt={restaurant.restaurant_name} />
 
         <div className="post-detail"> 
-        <p className="rating">Rating: {restaurant.rating}/10</p>
+          <p className="rating">Rating: {restaurant.rating}/10</p>
+          <p>{restaurant.description}</p>
 
-        <p>{restaurant.description}</p>
+          <div className="details-section">
+            <h3>Detail</h3>
+            <p><strong>Restaurant Name:</strong> {restaurant.restaurant_name}</p>
+            <p><strong>Location:</strong> {restaurant.location}</p>
+            <p><strong>Rating:</strong> {restaurant.rating}/10</p>
+            <p><strong>Special Item:</strong> {restaurant.special_item}</p>
+          </div>
 
+          <div className="recommendation-section">
+            <h3>Our Recommendation</h3>
+            <p>{restaurant.recommendation}</p>
+          </div>
 
-        <div className="details-section">
-          <h3>Detail</h3>
-          <p><strong>Restaurant Name:</strong> {restaurant.restaurant_name}</p>
-          <p><strong>Location:</strong> {restaurant.location}</p>
-          <p><strong>Rating:</strong> {restaurant.rating}/10</p>
-          <p><strong>Special Item:</strong> {restaurant.special_item}</p>
+          <div className="menu-download-section">
+            <h3>Download Menu</h3>
+            <a href={restaurant.menu_photo_url} download>
+              <button className="download-button">MENU HERE</button>
+            </a>
+          </div>
         </div>
 
-        <div className="recommendation-section">
-          <h3>Our Recommendation</h3>
-          <p>{restaurant.recommendation}</p>
+        {/* Displaying 3 cards in a row */}
+        <div className="cards-row">
+          {restaurants.map(item => (
+            <RestaurantCard key={item.id} restaurant={item} />
+          ))}
         </div>
-
-        <div className="menu-download-section">
-          <h3>Download Menu</h3>
-          <a href={restaurant.menu_photo_url} download>
-            <button className="download-button">MENU HERE</button>
-          </a>
-        </div>
-
-        </div>
-
-        
       </div>
+
       <div className="right-part">
         <div className="dummy-image">
           <img src="https://picsum.photos/200/300" alt="Dummy 1" />
@@ -77,9 +80,6 @@ function RestaurantDetail() {
           <img src="https://picsum.photos/200/300" alt="Dummy 2" />
         </div>
       </div>
-
-      
-      
     </div>
   );
 }

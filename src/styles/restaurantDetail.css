@@ -17,8 +17,6 @@
     flex-direction: column;
     gap: 50px;
   }
-
-
   
   .restaurant-title {
     font-size: 29px;
@@ -27,9 +25,8 @@
     width: 70%; 
     word-wrap: break-word;  
     text-transform: uppercase;
-   
-}
-
+  }
+  
   .landscape-image {
     width: 80%;
     height: auto;
@@ -39,8 +36,8 @@
     border: 5px solid #FFA823;  
     border-radius: 18px;
   }
-
-  .post-detail{
+  
+  .post-detail {
     width: 80%;
   }
   
@@ -89,5 +86,17 @@
   
   .dummy-image img {
     height: auto;
+  }
+  
+  .cards-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
+    margin-top: 20px; 
+  }
+  
+  .cards-row .restaurant-card {
+    width: 100%;  
+    max-width: 300px; 
   }
   
