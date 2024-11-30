@@ -38,10 +38,9 @@ const UserLogIn = ({ setIsLoggedIn }) => {
     
             if (response.ok) {
                 alert("Login successful!");
-    
-                // Store the user ID in localStorage
                 localStorage.setItem("userLoggedIn", "true");
                 localStorage.setItem("userId", data.user_id); // Store user ID
+                localStorage.setItem("username",data.username)
                 
                 setIsLoggedIn(true);  // Update state
                 navigate("/");  // Redirect to the home page or dashboard

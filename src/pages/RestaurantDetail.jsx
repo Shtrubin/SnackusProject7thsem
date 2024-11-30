@@ -10,8 +10,9 @@ function RestaurantDetail() {
   const [restaurant, setRestaurant] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [reviews, setReviews] = useState([]); // Add state to store reviews
 
-  const { restaurants } = useContext(RestaurantContext); 
+  const { restaurants } = useContext(RestaurantContext);
 
   useEffect(() => {
     fetch(`http://localhost:5000/restaurant/${id}`)
@@ -23,6 +24,7 @@ function RestaurantDetail() {
       })
       .then(data => {
         setRestaurant(data);
+        setReviews(data.reviews || []);
         setLoading(false);
       })
       .catch(error => {
@@ -34,13 +36,18 @@ function RestaurantDetail() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
+  const username = localStorage.getItem("username");
+  const handleSetReview = (text) => {
+    setReviews([...reviews, { review_text: text, username: username }]);
+  };
+
   return (
     <div className="restaurant-detail-container">
       <div className="left-part">
         <h2 className="restaurant-title">{restaurant.title}</h2>
         <img className="landscape-image" src={restaurant.photo_url} alt={restaurant.restaurant_name} />
 
-        <div className="post-detail"> 
+        <div className="post-detail">
           <p className="rating">Rating: {restaurant.rating}/10</p>
           <p>{restaurant.description}</p>
 
@@ -64,7 +71,9 @@ function RestaurantDetail() {
             </a>
           </div>
         </div>
-        <ReviewSection restaurantId={id} /> 
+
+        <ReviewSection restaurantId={id} reviews={reviews} handleSetReview={handleSetReview} />
+
         <div className="cards-row">
           {restaurants.map(item => (
             <RestaurantCard key={item.id} restaurant={item} />
@@ -81,7 +90,7 @@ function RestaurantDetail() {
         </div>
       </div>
     </div>
-  );
+  );  
 }
 
 export default RestaurantDetail;

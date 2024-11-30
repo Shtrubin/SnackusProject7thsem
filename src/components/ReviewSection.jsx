@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import '../styles/review.css'
+import React, { useState } from 'react';
+import '../styles/review.css';
 
-function ReviewSection({ restaurantId }) {
+function ReviewSection({ restaurantId, reviews, handleSetReview }) {
   const [review, setReview] = useState("");
-  const [reviews, setReviews] = useState([]);
 
   const handleReviewChange = (event) => {
     setReview(event.target.value);
@@ -40,8 +39,8 @@ function ReviewSection({ restaurantId }) {
       const data = await response.json();
 
       if (response.ok) {
-        setReviews([...reviews, { review_text: review, username: data.username ? data.username : 'you' }]);
-        setReview("");
+        handleSetReview(review);  
+        setReview("");  
       } else {
         alert(data.error || 'Error submitting review');
       }
@@ -51,29 +50,9 @@ function ReviewSection({ restaurantId }) {
     }
   };
 
-  useEffect(() => {
-    const fetchReviews = async () => {
-      try {
-        const response = await fetch(`http://localhost:5000/reviews/${restaurantId}`);
-        const data = await response.json();
-
-        if (response.ok) {
-          setReviews(data);
-        } else {
-          alert(data.message || 'Error fetching reviews');
-        }
-      } catch (error) {
-        console.error(error);
-        alert('Error fetching reviews');
-      }
-    };
-
-    fetchReviews();
-  }, [restaurantId]);
-
   return (
     <div className="review-section">
-        <div className="reviews-display">
+      <div className="reviews-display">
         <h3>Reviews</h3>
         {reviews.length > 0 ? (
           reviews.map((rev, index) => (
