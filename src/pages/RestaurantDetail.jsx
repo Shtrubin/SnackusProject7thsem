@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import '../styles/restaurantDetail.css';
+import RestaurantContext from "../context/RestaurantContext";
+import RestaurantCard from "../components/RestaurantCard";
 
 function RestaurantDetail() {
   const { id } = useParams();
   const [restaurant, setRestaurant] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const { restaurants } = useContext(RestaurantContext); 
 
   useEffect(() => {
     fetch(`http://localhost:5000/restaurant/${id}`)
@@ -32,10 +36,14 @@ function RestaurantDetail() {
   return (
     <div className="restaurant-detail-container">
       <div className="left-part">
-        <h2 className="restaurant-title">{restaurant.restaurant_name}</h2>
+        <h2 className="restaurant-title">{restaurant.title}</h2>
         <img className="landscape-image" src={restaurant.photo_url} alt={restaurant.restaurant_name} />
+
+        <div className="post-detail"> 
         <p className="rating">Rating: {restaurant.rating}/10</p>
+
         <p>{restaurant.description}</p>
+
 
         <div className="details-section">
           <h3>Detail</h3>
@@ -53,9 +61,13 @@ function RestaurantDetail() {
         <div className="menu-download-section">
           <h3>Download Menu</h3>
           <a href={restaurant.menu_photo_url} download>
-            <button className="download-button">Download Menu</button>
+            <button className="download-button">MENU HERE</button>
           </a>
         </div>
+
+        </div>
+
+        
       </div>
       <div className="right-part">
         <div className="dummy-image">
@@ -65,6 +77,9 @@ function RestaurantDetail() {
           <img src="https://picsum.photos/200/300" alt="Dummy 2" />
         </div>
       </div>
+
+      
+      
     </div>
   );
 }

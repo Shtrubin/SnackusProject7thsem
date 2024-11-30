@@ -11,32 +11,44 @@
   
   .right-part {
     width: 25%;
-    padding: 20px 0px 20px 55px;
+    padding: 50px 0px 20px 55px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 50px;
   }
+
+
   
   .restaurant-title {
     font-size: 29px;
     font-weight: bold;
     margin-bottom: 10px;
-  }
-  
+    width: 70%; 
+    word-wrap: break-word;  
+    text-transform: uppercase;
+   
+}
+
   .landscape-image {
     width: 80%;
     height: auto;
     max-width: 100%;
     object-fit: cover;
     aspect-ratio: 16/9;
-    margin-bottom: 20px;
-    border: 5px solid yellow;  
+    border: 5px solid #FFA823;  
+    border-radius: 18px;
+  }
+
+  .post-detail{
+    width: 80%;
   }
   
   .rating {
     font-size: 16px;
     margin: 10px 0;
+    color: #f98704;
+    font-weight: 500;
   }
   
   .details-section, .recommendation-section, .menu-download-section {
@@ -63,15 +75,16 @@
   
   .menu-download-section .download-button {
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #FFA823;
     color: white;
     border: none;
     cursor: pointer;
     font-size: 16px;
+    border-radius: 17px;
   }
   
   .menu-download-section .download-button:hover {
-    background-color: #45a049;
+    background-color: #fc9905;
   }
   
   .dummy-image img {
