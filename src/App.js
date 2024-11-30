@@ -8,6 +8,7 @@ import Navbar from "./pages/navbar";
 import Chatbot from "./pages/Chatbot";
 import CategorizedRestaurant from "./pages/CategorizedRestaurant";
 import { RestaurantProvider } from "./context/RestaurantContext"; // Import the provider
+import Search from "./pages/Search";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="/local" element={<CategorizedRestaurant  category={"local"}/>} />
             <Route path="/mid-range" element={<CategorizedRestaurant  category={"mid-range"}/>} />
             <Route path="/high-end" element={<CategorizedRestaurant  category={"high-end"}/>} />
+            <Route path="/search" element={<Search/>} />
           </Routes>
         </Layout>
       </Router>

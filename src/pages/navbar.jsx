@@ -22,7 +22,7 @@ const Navbar = () => {
           <p><Link to="/Local">Local</Link></p>
           <p><Link to="/Mid-range">Mid-range</Link></p>
           <p><Link to="/High-End">High-End</Link></p>
-          <p><Link to="/Search">Search</Link></p>
+          <p><Link to="/search">Search</Link></p>
           <p><Link to="/signup">SignUp</Link></p>
           <p><Link to="/login">Login</Link></p>
           <p><Link to="/chatbot">Chatbot</Link></p>
