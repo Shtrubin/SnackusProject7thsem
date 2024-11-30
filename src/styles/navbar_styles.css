@@ -1,6 +1,6 @@
 #nav {
   width: 100%;
-  background-color: #333;
+  background-color: #fff;
   padding: 0 100px;
 }
 
@@ -25,8 +25,8 @@
 }
 
 #logo h1 {
-  color: white;
-  font-size: 2.5rem;
+  color: #000000;
+  font-size: 4.5rem;
   margin: 0;
 }
 
@@ -47,7 +47,7 @@
 }
 
 #menus {
-  background-color: #333;
+  background-color: #fff;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -55,6 +55,7 @@
   gap: 10px;
   padding: 10px;
   font-size: 1.2rem;
+  font-weight: 500;
 }
 
 #menus p {
@@ -62,13 +63,27 @@
 }
 
 #menus a {
-  color: white;
+  color: #000000;
   text-decoration: none;
-  padding: 5px 10px;
-  
+  position: relative;
+  padding-bottom: 7px;
 }
 
-#menus a:hover {
-  background-color: #555;
-  border-radius: 15px;
+#menus a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #FFA62B;
+  transform: scaleX(0);
+  transform-origin: bottom left;
+  transition: transform 0.3s ease-out;
 }
+
+#menus a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
