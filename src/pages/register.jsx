@@ -1,13 +1,14 @@
 import { useState } from "react";
 import "../styles/register.css";
 import CustomFormField from "../components/custom_form_field";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const navigate=useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -48,7 +49,7 @@ const Register = () => {
 
             if (response.ok) {
                 alert("User registered successfully!");
-                
+                navigate("/login")
                 setUsername("");
                 setEmail("");
                 setPassword("");

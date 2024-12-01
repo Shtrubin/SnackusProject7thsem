@@ -2,6 +2,8 @@ import React, { useState, useContext } from "react";
 import RestaurantContext from "../context/RestaurantContext";
 import RestaurantCard from "../components/RestaurantCard";
 import  '../styles/search.css'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 const Search = () => {
   const { restaurants, loading, error } = useContext(RestaurantContext);
@@ -31,7 +33,8 @@ const Search = () => {
 
   return (
     <div className="search-container">
-      <div>
+      <div className="input-search">
+      <FontAwesomeIcon icon={faMagnifyingGlass} style={{fontSize: '25px'}}/>
         <input
           type="text"
           value={searchQuery}
