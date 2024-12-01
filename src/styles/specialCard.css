@@ -3,7 +3,7 @@
     justify-content: flex-start; 
     margin-bottom: 20px;
     margin-left: 45px;
-    
+    cursor: pointer;
   }
   
   .special-card {

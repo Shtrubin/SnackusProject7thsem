@@ -1,6 +1,6 @@
 .card {
   border-radius: 20px;
-
+  cursor: pointer;
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
 }
