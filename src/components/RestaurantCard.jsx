@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom"; // for React Router v6
+import { useNavigate } from "react-router-dom"; 
 import "../styles/restaurantCard.css";
 
 function RestaurantCard({ restaurant }) {

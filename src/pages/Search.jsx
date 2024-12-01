@@ -8,12 +8,10 @@ const Search = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredRestaurants, setFilteredRestaurants] = useState(restaurants);
 
-  // Handle search input change
   const handleSearchChange = (event) => {
     const query = event.target.value.toLowerCase();
     setSearchQuery(query);
 
-    // Filter the restaurants based on the search query
     const filteredData = restaurants.filter((restaurant) => {   
       return (
         restaurant.restaurant_name.toLowerCase().includes(query) ||

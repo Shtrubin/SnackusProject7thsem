@@ -10,7 +10,7 @@ function RestaurantDetail() {
   const [restaurant, setRestaurant] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [reviews, setReviews] = useState([]); // Add state to store reviews
+  const [reviews, setReviews] = useState([]); 
 
   const { restaurants } = useContext(RestaurantContext);
 

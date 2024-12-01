@@ -1,16 +1,12 @@
-// context/RestaurantContext.js
 import React, { createContext, useState, useEffect } from "react";
 
-// Create a Context for the restaurant data
 const RestaurantContext = createContext();
 
-// Create a Provider component
 export const RestaurantProvider = ({ children }) => {
   const [restaurants, setRestaurants] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Fetch restaurant data from the backend
   useEffect(() => {
     fetch("http://localhost:5000/restaurants")
       .then((response) => {

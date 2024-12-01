@@ -39,11 +39,11 @@ const UserLogIn = ({ setIsLoggedIn }) => {
             if (response.ok) {
                 alert("Login successful!");
                 localStorage.setItem("userLoggedIn", "true");
-                localStorage.setItem("userId", data.user_id); // Store user ID
+                localStorage.setItem("userId", data.user_id); 
                 localStorage.setItem("username",data.username)
                 
-                setIsLoggedIn(true);  // Update state
-                navigate("/");  // Redirect to the home page or dashboard
+                setIsLoggedIn(true); 
+                navigate("/"); 
             } else {
                 alert(data.error || "Invalid email or password");
             }

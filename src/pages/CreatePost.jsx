@@ -10,7 +10,7 @@ function CreatePost() {
     special_item: "",
     description: "",
     recommendation: "",
-    category: "local", // Default to 'local'
+    category: "local", 
   });
 
   const [restaurantPhoto, setRestaurantPhoto] = useState(null);
@@ -33,10 +33,8 @@ function CreatePost() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Create FormData to handle file uploads
     const form = new FormData();
 
-    // Append form data
     form.append("title", formData.title);
     form.append("restaurant_name", formData.restaurant_name);
     form.append("rating", formData.rating);
@@ -45,9 +43,8 @@ function CreatePost() {
     form.append("special_item", formData.special_item);
     form.append("description", formData.description);
     form.append("recommendation", formData.recommendation);
-    form.append("category", formData.category); // Send category field
+    form.append("category", formData.category); 
 
-    // Append image files if they are selected
     if (restaurantPhoto) {
       form.append("restaurant_photo", restaurantPhoto);
     }

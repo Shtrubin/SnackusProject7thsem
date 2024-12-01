@@ -2,11 +2,11 @@
 import React, { useContext } from "react";
 import RestaurantCard from "../components/RestaurantCard";
 import SpecialRestaurantCard from "../components/SpecialRestaurantCard";
-import RestaurantContext from "../context/RestaurantContext"; // Import the context
+import RestaurantContext from "../context/RestaurantContext"; 
 import "../styles/home.css";
 
 function Home() {
-  const { restaurants, loading, error } = useContext(RestaurantContext); // Use the context
+  const { restaurants, loading, error } = useContext(RestaurantContext); 
 
   if (loading) {
     return <div>Loading...</div>;
