@@ -9,6 +9,7 @@ import CategorizedRestaurant from "./pages/CategorizedRestaurant";
 import { RestaurantProvider } from "./context/RestaurantContext"; 
 import Search from "./pages/Search";
 import RestaurantDetail from "./pages/RestaurantDetail";
+import CreatePost from "./pages/CreatePost";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -34,6 +35,7 @@ function App() {
             <Route path="/high-end" element={<CategorizedRestaurant  category={"high-end"}/>} />
             <Route path="/search" element={<Search />} />
             <Route path="/restaurant/:id" element={<RestaurantDetail />} />
+            <Route path="/create" element={<CreatePost />} />
           </Routes>
         </Layout>
       </Router>
