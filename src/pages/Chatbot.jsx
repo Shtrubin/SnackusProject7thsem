@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import '../styles/chatbot.css'
+import React, { useState, useRef, useEffect } from 'react';
+import '../styles/chatbot.css';
 
 const Chatbot = () => {
   const [message, setMessage] = useState('');
   const [chatHistory, setChatHistory] = useState([]);
+  const chatHistoryRef = useRef(null);  // Create a reference to the chat history div
 
   const sendMessage = async () => {
     if (message.trim()) {
@@ -35,9 +36,16 @@ const Chatbot = () => {
     }
   };
 
+  // Automatically scroll to the bottom of the chat history whenever chatHistory is updated
+  useEffect(() => {
+    if (chatHistoryRef.current) {
+      chatHistoryRef.current.scrollTop = chatHistoryRef.current.scrollHeight;
+    }
+  }, [chatHistory]); // Dependency on chatHistory to trigger scrolling when it changes
+
   return (
     <div className="chatbot">
-      <div className="chat-history">
+      <div className="chat-history" ref={chatHistoryRef}>  {/* Attach ref to the chat history container */}
         {chatHistory.map((chat, index) => (
           <div
             key={index}
