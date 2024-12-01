@@ -9,6 +9,8 @@ import { faRocketchat } from '@fortawesome/free-brands-svg-icons';
 const Navbar = ({ isLoggedIn }) => {
   const handleLogout = () => {
     localStorage.setItem("userLoggedIn", "false");
+    localStorage.removeItem("userId");
+    localStorage.removeItem("username");
     window.location.reload(); 
   };
 

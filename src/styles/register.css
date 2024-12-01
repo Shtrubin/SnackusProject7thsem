@@ -58,13 +58,13 @@ body, html {
 }
 
 #signup-box input[type="submit"] {
-    background-color: #007BFF;
+    background-color: #FFA823;
     color: white;
     cursor: pointer;
 }
 
 #signup-box input[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #e68a00;
 }
 
 #login-field {
@@ -73,7 +73,7 @@ body, html {
 }
 
 #login-field a {
-    color: #007BFF;
+    color: #FFA823;
     text-decoration: none;
 }
 

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import '../styles/review.css';
+import { useNavigate } from 'react-router-dom';
 
 function ReviewSection({ restaurantId, reviews, handleSetReview }) {
   const [review, setReview] = useState("");
+  const navigate= useNavigate();
 
   const handleReviewChange = (event) => {
     setReview(event.target.value);
@@ -20,6 +22,7 @@ function ReviewSection({ restaurantId, reviews, handleSetReview }) {
 
     if (!userId) {
       alert("You must be logged in to submit a review.");
+      navigate('/login')
       return;
     }
 

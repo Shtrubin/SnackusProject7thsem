@@ -56,14 +56,22 @@ body, html {
     border-radius: 5px;
 }
 
+#login-box input[type="email"]:focus,
+#login-box input[type="password"]:focus {
+    border-color: #FFA823;
+    outline: none;
+}
+
 #login-box input[type="submit"] {
-    background-color: #007BFF;
+    background-color: #FFA823;
     color: white;
     cursor: pointer;
+    border: none;
+    border-radius: 5px;
 }
 
 #login-box input[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #e68a00;
 }
 
 #signup-field {
@@ -72,7 +80,7 @@ body, html {
 }
 
 #signup-field a {
-    color: #007BFF;
+    color: #FFA823;
     text-decoration: none;
 }
 
