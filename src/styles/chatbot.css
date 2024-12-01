@@ -71,11 +71,11 @@ input:focus {
   border-color: #FFA823;
 }
 
-button {
+.send-button {
   padding: 7px 15px;
-  background-color: #FFA823;
+  background-color: #FFA823; 
   color: white;
-  border: none;
+  border: none; 
   border-radius: 18px;
   cursor: pointer;
   font-size: 18px;
@@ -83,7 +83,7 @@ button {
   transition: background-color 0.3s ease;
 }
 
-button:hover {
+.send-button:hover {
   background-color: #e58f20;
 }
 

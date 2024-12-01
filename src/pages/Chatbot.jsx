@@ -66,7 +66,7 @@ const Chatbot = () => {
           onChange={(e) => setMessage(e.target.value)}
           placeholder="Ask me anything..."
         />
-        <button onClick={sendMessage}>Send</button>
+        <button className="send-button" onClick={sendMessage}>Send</button>
       </div>
     </div>
   );

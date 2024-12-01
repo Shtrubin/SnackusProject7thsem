@@ -1,0 +1,42 @@
+h1{
+    text-align: center;
+    margin-top: 30px;
+}
+.form-container {
+    display: flex;
+    flex-direction: row;
+    padding: 30px;
+    justify-content: space-between;
+  }
+  
+  .left-part-create, .right-part-create {
+    width: 48%; 
+    gap: 10px;
+  }
+  
+  input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  textarea {
+    height: 100px;
+  }
+  
+  button {
+    padding: 10px 15px;
+    border: none;
+    background-color:  #FFA823;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+ 
+  }
+  
+  button:hover {
+    background-color:  #df8600;
+  }
+  

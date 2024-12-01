@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import '../styles/create.css'
 
 function CreatePost() {
   const [formData, setFormData] = useState({
@@ -74,84 +75,90 @@ function CreatePost() {
   return (
     <div>
       <h1>Add a Restaurant</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="title"
-          value={formData.title}
-          onChange={handleInputChange}
-          placeholder="Title"
-        />
-        <input
-          type="text"
-          name="restaurant_name"
-          value={formData.restaurant_name}
-          onChange={handleInputChange}
-          placeholder="Restaurant Name"
-        />
-        <input
-          type="number"
-          name="rating"
-          value={formData.rating}
-          onChange={handleInputChange}
-          placeholder="Rating"
-        />
-        <input
-          type="text"
-          name="location"
-          value={formData.location}
-          onChange={handleInputChange}
-          placeholder="Location"
-        />
-        <input
-          type="text"
-          name="sub_location"
-          value={formData.sub_location}
-          onChange={handleInputChange}
-          placeholder="Sub-location"
-        />
-        <input
-          type="text"
-          name="special_item"
-          value={formData.special_item}
-          onChange={handleInputChange}
-          placeholder="Special Item"
-        />
+      <form onSubmit={handleSubmit} className="form-container">
+        <div className="left-part-create">
+          <input
+            type="text"
+            name="title"
+            value={formData.title}
+            onChange={handleInputChange}
+            placeholder="Title"
+          />
+          <input
+            type="text"
+            name="restaurant_name"
+            value={formData.restaurant_name}
+            onChange={handleInputChange}
+            placeholder="Restaurant Name"
+          />
+          <input
+            type="number"
+            name="rating"
+            value={formData.rating}
+            onChange={handleInputChange}
+            placeholder="Rating"
+          />
+          <input
+            type="text"
+            name="location"
+            value={formData.location}
+            onChange={handleInputChange}
+            placeholder="Location"
+          />
+          <input
+            type="text"
+            name="sub_location"
+            value={formData.sub_location}
+            onChange={handleInputChange}
+            placeholder="Sub-location"
+          />
+          <input
+            type="text"
+            name="special_item"
+            value={formData.special_item}
+            onChange={handleInputChange}
+            placeholder="Special Item"
+          />
+          <textarea
+            name="description"
+            value={formData.description}
+            onChange={handleInputChange}
+            placeholder="Description"
+          />
+          
+        </div>
+
+        <div className="right-part-create">
         <textarea
-          name="description"
-          value={formData.description}
-          onChange={handleInputChange}
-          placeholder="Description"
-        />
-        <textarea
-          name="recommendation"
-          value={formData.recommendation}
-          onChange={handleInputChange}
-          placeholder="Recommendation"
-        />
+            name="recommendation"
+            value={formData.recommendation}
+            onChange={handleInputChange}
+            placeholder="Recommendation"
+          />
+          
+          <select
+            name="category"
+            value={formData.category}
+            onChange={handleInputChange}
+          >
+            <option value="local">Local</option>
+            <option value="mid-range">Mid-range</option>
+            <option value="high-end">High-end</option>
+          </select>
 
-        <select
-          name="category"
-          value={formData.category}
-          onChange={handleInputChange}
-        >
-          <option value="local">Local</option>
-          <option value="mid-range">Mid-range</option>
-          <option value="high-end">High-end</option>
-        </select>
+          <input
+            type="file"
+            name="restaurant_photo"
+            onChange={handleImageChange}
+          />
+          <input
+            type="file"
+            name="menu_photo"
+            onChange={handleImageChange}
+          />
 
-        <input
-          type="file"
-          name="restaurant_photo"
-          onChange={handleImageChange}
-        />
-        <input
-          type="file"
-          name="menu_photo"
-          onChange={handleImageChange}
-        />
-
-        <button type="submit">Submit</button>
+          <button type="submit">Submit</button>
+        </div>
       </form>
     </div>
   );
