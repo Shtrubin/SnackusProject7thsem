@@ -14,7 +14,6 @@
     text-align: left;
     display: flex;
     align-items: center;
-    gap: 60px;
   }
   
   .special-card img {
@@ -30,6 +29,7 @@
     flex-direction: column;
     justify-content: space-between;
     flex-grow: 1;
+    margin-right: 40px;
   }
   
   .special-card-body h3 {

@@ -13,6 +13,7 @@ function RestaurantCard({ restaurant }) {
     <div className="card" onClick={handleClick}>
       <img src={restaurant.photo_url} alt={restaurant.restaurant_name} />
       <div className="card-body">
+        <h3>{restaurant.title}</h3>
         <h3>{restaurant.restaurant_name}</h3>
         <p>{restaurant.description}</p>
         <div className="rate-location">
