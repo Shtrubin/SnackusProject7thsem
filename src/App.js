@@ -10,6 +10,7 @@ import { RestaurantProvider } from "./context/RestaurantContext";
 import Search from "./pages/Search";
 import RestaurantDetail from "./pages/RestaurantDetail";
 import CreatePost from "./pages/CreatePost";
+import Footer from "./pages/Footer";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -52,6 +53,7 @@ function Layout({ children, isLoggedIn }) {
     <>
       {!hideNavbar && <Navbar isLoggedIn={isLoggedIn} />}
       {children}
+      {!hideNavbar && <Footer />}
     </>
   );
 }
