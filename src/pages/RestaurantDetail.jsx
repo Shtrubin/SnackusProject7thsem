@@ -4,6 +4,9 @@ import '../styles/restaurantDetail.css';
 import RestaurantContext from "../context/RestaurantContext";
 import RestaurantCard from "../components/RestaurantCard";
 import ReviewSection from "../components/ReviewSection";
+import menu from '../assets/menu.png'
+import ads1 from '../assets/ads1.png';
+import ads2 from '../assets/ads2.png'
 
 function RestaurantDetail() {
   const { id } = useParams();
@@ -66,7 +69,7 @@ function RestaurantDetail() {
 
           <div className="menu-download-section">
             <h3>Download Menu</h3>
-            <a href={restaurant.menu_photo_url} download>
+            <a href={menu} download>
               <button className="download-button">MENU HERE</button>
             </a>
           </div>
@@ -83,10 +86,34 @@ function RestaurantDetail() {
 
       <div className="right-part">
         <div className="dummy-image">
-          <img src="https://picsum.photos/200/300" alt="Dummy 1" />
+          <img src={ads1} alt="Ads 1" />
         </div>
         <div className="dummy-image">
-          <img src="https://picsum.photos/200/300" alt="Dummy 2" />
+          <img src={ads2} alt="Ads 2" />
+        </div>
+        <div className="dummy-image">
+          <img src={ads1} alt="Ads 1" />
+        </div>
+        <div className="dummy-image">
+          <img src={ads2} alt="Ads 2" />
+        </div>
+        <div className="dummy-image">
+          <img src={ads1} alt="Ads 1" />
+        </div>
+        <div className="dummy-image">
+          <img src={ads2} alt="Ads 2" />
+        </div>
+        <div className="dummy-image">
+          <img src={ads1} alt="Ads 1" />
+        </div>
+        <div className="dummy-image">
+          <img src={ads2} alt="Ads 2" />
+        </div>
+        <div className="dummy-image">
+          <img src={ads1} alt="Ads 1" />
+        </div>
+        <div className="dummy-image">
+          <img src={ads2} alt="Ads 2" />
         </div>
       </div>
     </div>

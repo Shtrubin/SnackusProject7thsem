@@ -87,6 +87,7 @@
   
   .dummy-image img {
     height: auto;
+    width: 65%;
   }
   
   .cards-row {
